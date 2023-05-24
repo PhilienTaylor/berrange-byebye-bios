@@ -1,0 +1,11 @@
+
+  STOP: Machine was booted from BIOS or UEFI CSM
+   _   _          _   _ ___________ _____   ___
+  | \ | |        | | | |  ___|  ___|_   _| |__ \
+  |  \| | ___    | | | | |__ | |_    | |      ) |
+  | . ` |/ _ \   | | | |  __||  _|   | |     / /
+  | |\  | (_) |  | |_| | |___| |    _| |_   |_|
+  \_| \_/\___/    \___/\____/\_|    \___/   (_)
+
+  Installation requires UEFI firmware to boot
+
