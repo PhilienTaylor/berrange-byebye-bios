@@ -49,7 +49,7 @@ def main():
         description='Install UEFI warning boot sector')
 
     parser.add_argument("--boot-stub", "-b", metavar="BOOT-STUB-PATH",
-                        default="/usr/lib/byebyebios/bootstub.bin",
+                        default="/usr/share/byebyebios/bootstub.bin",
                         help="path to boot sector code stub")
     parser.add_argument("--message", "-m", metavar="MESSAGE-PATH",
                         default="/usr/share/byebyebios/nouefi.txt",
