@@ -9,7 +9,6 @@ def install(bootsector, message, image):
 
     with open(message, "rb") as fh:
         msg = fh.read()
-        print(len(msg))
 
     # 512 sector, minus
     #  - length of boot sector code
