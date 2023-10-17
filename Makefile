@@ -38,7 +38,7 @@ clean:
 
 dist: $(DIST_NAME).tar.gz
 
-install: bootstub.bin nouefi.txt
+install: all
 	install -d $(DESTDIR)$(pkgdatadir)
 	install -d $(DESTDIR)$(bindir)
 	install -m 0644 nouefi.txt $(DESTDIR)$(pkgdatadir)/
@@ -48,5 +48,5 @@ install: bootstub.bin nouefi.txt
 rpm: $(DIST_NAME).tar.gz
 	rpmbuild --define "_sourcedir $(PWD)" -ba $(NAME).spec
 
-$(DIST_NAME).tar.gz:
+$(DIST_NAME).tar.gz: Makefile
 	git archive -o $@ --prefix=$(DIST_NAME)/ HEAD
