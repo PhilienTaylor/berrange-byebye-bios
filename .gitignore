@@ -4,3 +4,5 @@
 *.tar.gz
 byebyebios-*/
 *.1
+out.txt
+test.img

@@ -39,9 +39,10 @@ test: test.img
 	sleep 2
 	kill `cat test.pid`
 	diff out.txt nouefi.txt
+	rm -f out.txt test.img
 
 clean:
-	rm -f *.bin *.o *.tar.gz *.1 *~
+	rm -f *.bin *.o *.tar.gz *.1 *~ out.txt test.img
 
 dist: $(DIST_NAME).tar.gz
 
