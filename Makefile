@@ -50,7 +50,7 @@ install: all
 	install -d $(DESTDIR)$(man1dir)
 	install -m 0644 nouefi.txt $(DESTDIR)$(pkgdatadir)/
 	install -m 0644 bootstub.bin $(DESTDIR)$(pkgdatadir)/
-	install -m 0755 $(NAME) $(DESTDIR)$(bindir)/
+	install -m 0755 $(NAME).py $(DESTDIR)$(bindir)/$(NAME)
 	install -m 0644 $(MANPAGE) $(DESTDIR)$(man1dir)/
 
 rpm: $(DIST_NAME).tar.gz
