@@ -1,3 +1,6 @@
+.. SPDX-License-Identifier: MIT-0
+.. SPDX-FileCopyrightText: 2023 Red Hat
+
 Bye Bye BIOS
 ============
 

@@ -1,0 +1,18 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: byebyebios
+Upstream-Contact: Daniel P. Berrangé <berrange@redhat.com>
+Source: https://gitlab.com/berrange/byebyebios
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...
+
+Files: nouefi.txt
+Copyright: 2023 Red Hat
+License: MIT-0
+
+Files: .gitignore
+Copyright: 2023 Red Hat
+License: MIT-0

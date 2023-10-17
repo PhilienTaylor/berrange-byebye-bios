@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT-0
+# SPDX-FileCopyrightText: 2023 Red Hat
 
 # No one is attaching GDB to a boot sector
 %global debug_package %{nil}
@@ -28,7 +30,7 @@ the requirement to boot using UEFI firmware.
 %make_install DESTDIR=$RPM_BUILD_ROOT
 
 %files
-%license COPYING
+%license LICENSES/MIT-0.txt
 %{_bindir}/%{name}
 %{_datadir}/%{name}/nouefi.txt
 %{_datadir}/%{name}/bootstub.bin
