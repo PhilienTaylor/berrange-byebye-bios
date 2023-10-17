@@ -28,10 +28,15 @@ the requirement to boot using UEFI firmware.
 %__make
 
 %install
-%make_install DESTDIR=$RPM_BUILD_ROOT
+%make_install \
+    DESTDIR=$RPM_BUILD_ROOT \
+    bindir=%{_bindir} \
+    datadir=%{_datadir} \
+    mandir=%{_mandir}
 
 %files
 %license LICENSES/MIT-0.txt
 %{_bindir}/%{name}
 %{_datadir}/%{name}/nouefi.txt
 %{_datadir}/%{name}/bootstub.bin
+%{_mandir}/man1/%{name}.1*
