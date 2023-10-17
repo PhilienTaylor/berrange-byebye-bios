@@ -14,6 +14,11 @@ Url: https://gitlab.com/berrange/byebyebios
 ExclusiveArch: x86_64
 BuildArch: noarch
 
+BuildRequires: make
+BuildRequires: python3-docutils
+BuildRequires: binutils
+BuildRequires: qemu-system-x86-core
+
 %description
 The byebyebios package provides an x86 boot sector that should
 be copied to any disk image that does not intend to support
@@ -26,6 +31,9 @@ the requirement to boot using UEFI firmware.
 
 %build
 %__make
+
+%check
+%__make test
 
 %install
 %make_install \
