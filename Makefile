@@ -28,7 +28,7 @@ bootstub.bin: bootstub.o
 
 test.img: bootstub.bin nouefi.txt
 	dd if=/dev/zero of=$@ bs=512 count=100
-	./byebyebios -b bootstub.bin -m nouefi.txt $@
+	./byebyebios.py -b bootstub.bin -m nouefi.txt $@
 
 $(MANPAGE): $(MANPAGE:%.1=%.rst)
 	rst2man $< > $@
