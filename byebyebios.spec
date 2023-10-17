@@ -7,11 +7,12 @@
 Name: byebyebios
 Version: 1.0
 Release: 1
-Summary: x86 boot sector to inform of UEFI boot requirement
+Summary: Injects a x86 boot sector to inform of UEFI boot requirement
 License: MIT-0
 Source: https://gitlab.com/berrange/byebyebios/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 Url: https://gitlab.com/berrange/byebyebios
 ExclusiveArch: x86_64
+BuildArch: noarch
 
 %description
 The byebyebios package provides an x86 boot sector that should
