@@ -34,7 +34,7 @@ $(MANPAGE): $(MANPAGE:%.1=%.rst)
 	rst2man $< > $@
 
 test: test.img
-	qemu-system-i386 -pidfile test.pid -cpu qemu32 -device VGA -nodefaults -serial file:out.txt -drive file=$<,if=ide,format=raw &
+	qemu-system-i386 -pidfile test.pid -cpu qemu32 -display none -nodefaults -serial file:out.txt -drive file=$<,if=ide,format=raw &
 	sleep 2
 	kill `cat test.pid`
 	diff out.txt nouefi.txt
