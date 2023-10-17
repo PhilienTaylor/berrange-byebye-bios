@@ -18,6 +18,7 @@ BuildRequires: make
 BuildRequires: python3-docutils
 BuildRequires: binutils
 BuildRequires: qemu-system-x86-core
+BuildRequires: parted
 
 %description
 The byebyebios package provides an x86 boot sector that should

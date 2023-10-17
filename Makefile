@@ -27,7 +27,8 @@ bootstub.bin: bootstub.o
 	ld -m elf_i386 --oformat binary -e bye_bye_bios -Ttext 0x7c00 -o $@ $<
 
 test.img: bootstub.bin nouefi.txt
-	dd if=/dev/zero of=$@ bs=512 count=100
+	dd if=/dev/zero of=$@ bs=1M count=10
+	parted $@ mklabel gpt
 	./byebyebios.py -b bootstub.bin -m nouefi.txt $@
 
 $(MANPAGE): $(MANPAGE:%.1=%.rst)
