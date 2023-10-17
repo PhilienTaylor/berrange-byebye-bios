@@ -7,7 +7,11 @@ import sys
 import argparse
 
 
-def install(bootsector, message, image):
+# "EFI PART" in little endian
+GPT_SIG = bytes([0x45, 0x46, 0x49, 0x20, 0x50, 0x41, 0x52, 0x54])
+
+
+def install(bootsector, message, image, force):
     with open(bootsector, "rb") as fh:
         bs = fh.read()
 
@@ -25,11 +29,18 @@ def install(bootsector, message, image):
         print(
             f"Message in {message} is too long, maximum {maxmsg} characters permitted"
         )
-        sys.exit(1)
+        return False
 
     pad = maxmsg - len(msg)
 
     with open(image, "rb+") as fh:
+        fh.seek(512)
+        sig = fh.read(8)
+        if sig != GPT_SIG and not force:
+            print(f"Device {image} is missing the GPT header signature")
+            return False
+
+        fh.seek(0)
         fh.write(bs)
         fh.write(msg)
         # Message NUL terminator
@@ -62,6 +73,7 @@ def install(bootsector, message, image):
         # Partitions 2-4 are empty
         fh.write(bytes([0] * 16 * 3))
         fh.write(bytes([0x55, 0xAA]))
+    return True
 
 
 def main():
@@ -82,6 +94,12 @@ def main():
         help="path to file with UEFI warning message",
     )
     parser.add_argument(
+        "--force",
+        "-f",
+        action="store_true",
+        help="force install even if GPT signature is missing",
+    )
+    parser.add_argument(
         "disk_image",
         metavar="DISK-IMAGE-PATH",
         help="path to disk image to install boot sector in",
@@ -89,7 +107,9 @@ def main():
 
     args = parser.parse_args()
 
-    install(args.boot_stub, args.message, args.disk_image)
+    if not install(args.boot_stub, args.message, args.disk_image, args.force):
+        sys.exit(1)
+    sys.exit(0)
 
 
 main()

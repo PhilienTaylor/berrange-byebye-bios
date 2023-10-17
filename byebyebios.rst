@@ -55,6 +55,21 @@ OPTIONS
 
    Note, the message file must use ``<CR><LF>`` line terminators.
 
+ * ``--force``
+
+   Normally ``byebyebios`` will validate that the disk image
+   specified contains a valid GPT header signature before
+   installing the dummy boot sector. This is a safety net
+   against accidental overwriting data in a file/device
+   that is not a bootable OS image, should the wrong path
+   be given.
+
+   This option cause instalation of the boot sector even if
+   the GPT signature is not found. **Be careful with use of
+   this option, as data loss will likely result if this tool
+   is pointed to an inappropriate file with the GPT check
+   disabled.**
+
 EXAMPLES
 ========
 
